@@ -1,6 +1,6 @@
-# compose-mysql-helloworld-nodejs overview
+# mysql-nodejs-connectivity's overview
 
-compose-mysql-helloworld-nodejs is a sample IBM Cloud application which shows you how to connect to an IBM Compose for MySQL for IBM Cloud service using Node.js.
+
 
 ## Running the app on IBM Cloud
 
@@ -67,24 +67,4 @@ Your application is now running at `<host>.mybluemix.net`.
 
 The node-mysql-helloworld app displays the contents of an _examples_ database. To demonstrate that the app is connected to your service, add some words to the database. The words are displayed as you add them, with the most recently added words displayed first.
 
-## Code Structure
-
-| File | Description |
-| ---- | ----------- |
-|[**server.js**](server.js)|Establishes a connection to the MySQL database using credentials from VCAP_ENV and handles create and read operations on the database. |
-|[**main.js**](public/javascripts/main.js)|Handles user input for a PUT command and parses the results of a GET command to output the contents of the MySQL database.|
-
-The app uses a PUT and a GET operation:
-
-- PUT
-  - takes user input from [main.js](public/javascripts/main.js)
-  - uses the `connection.query` method to add the user input to the _words_ table
-
-- GET
-  - uses `connection.query` method to retrieve the contents of the _words_ table
-  - returns the response of the database command to [main.js](public/javascripts/main.js)
-
-
-[compose_for_MySQL_url]: https://console.bluemix.net/catalog/services/compose-for-MySQL/
-[IBMCloud_signup_url]: https://console.bluemix.net/registration/?cm_mmc=Display-SampleApp-_-BluemixSampleApp-ComposeMySQL
 

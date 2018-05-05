@@ -19,17 +19,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/IBM-Cloud/compose-mysql-helloworld-nodejs.git"
+    "url": "https://github.com/davidliu51/mysql-nodejs-connectivity.git"
   },
   "author": "IBM Corp.",
   "contributors": [
     {
-      "name": "Neil Dewhurst",
-      "email": "ndewhurs@uk.ibm.com"
+      "name": "Gang Liu",
+      "email": "gangliu@dal.ca"
     }
   ],
   "bugs": {
-    "url": "https://github.com/IBM-Cloud/compose-mysql-helloworld-nodejs/issues"
+    "url": "https://github.com/davidliu51/mysql-nodejs-connectivity/issues"
   },
   "license": "Apache-2.0"
 }

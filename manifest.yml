@@ -1,7 +1,7 @@
 ---
 applications:
-- name:    compose-mysql-helloworld-nodejs
-  host:    compose-mysql-helloworld-nodejs
+- name:    aTest
+  host:    acscicoursetest
   memory:  256M
   services:
-    - my-compose-for-mysql-service
+    - Compose for MySQL-sobeys
