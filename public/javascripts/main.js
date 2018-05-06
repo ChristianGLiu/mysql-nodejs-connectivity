@@ -6,7 +6,7 @@ $(document).ready(function() {
     $.get( '/get', function(data) {
       var rendered = "<ul>";
       data.forEach(function(item) {
-        rendered = rendered + "<li title="+item.CUS_NAME+">The word <b>" + item.CUS_ADDR + "</b></li>";
+        rendered = rendered + "<li title="+item.CUS_NAME+">The customer address <b>" + item.CUS_ADDR + "</b></li>";
       });
       rendered = rendered + "</ul>";
 
@@ -15,7 +15,7 @@ $(document).ready(function() {
     $('.hidden').fadeIn();
   }
 
-  $('#add-word').submit(function(e) {
+  $('#add-customer').submit(function(e) {
     e.preventDefault();
 
     $.ajax({
