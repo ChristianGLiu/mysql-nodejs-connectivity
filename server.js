@@ -6,6 +6,7 @@
 "use strict";
 /* jshint node:true */
 
+
 // Add the express web framework
 const express = require("express");
 const app = express();
@@ -96,7 +97,7 @@ connection.connect(function(err) {
         console.log(err);
     } else {
         connection.query(
-            "CREATE TABLE IF NOT EXISTS words (id int auto_increment primary key, word varchar(256) NOT NULL, definition varchar(256) NOT NULL)",
+            "CREATE TABLE IF NOT EXISTS CUSTOMER (id int auto_increment primary key, CUS_NAME varchar(256) NOT NULL, CUS_ADDR varchar(256) NOT NULL, CUS_LIMITS varchar(256) NOT NULL)",
             function(err, result) {
                 if (err) {
                     console.log(err);
@@ -109,12 +110,12 @@ connection.connect(function(err) {
 // We can now set up our web server. First up we set it to serve static pages
 app.use(express.static(__dirname + "/public"));
 
-// Add a word to the database
-function addWord(word, definition) {
+// Add a customer to the database
+function addWord(name, addr, limits) {
     return new Promise(function(resolve, reject) {
-        let queryText = "INSERT INTO words(word,definition) VALUES(?, ?)";
+        let queryText = "INSERT INTO CUSTOMER(CUS_NAME,CUS_ADDR,CUS_LIMITS) VALUES(?, ?, ?)";
         connection.query(
-            queryText, [word, definition],
+            queryText, [name, addr, limits],
             function(error, result) {
                 if (error) {
                     console.log(error);
@@ -127,11 +128,11 @@ function addWord(word, definition) {
     });
 }
 
-// Get words from the database
-function getWords() {
+// Get customers from the database
+function getCustomers() {
     return new Promise(function(resolve, reject) {
         // execute a query on our database
-        connection.query("SELECT * FROM words ORDER BY word ASC", function(
+        connection.query("SELECT * FROM CUSTOMER ORDER BY CUS_NUM ASC", function(
             err,
             result
         ) {
@@ -147,7 +148,7 @@ function getWords() {
 
 // The user has clicked submit to add a word and definition to the database
 // Send the data to the addWord function and send a response if successful
-app.put("/words", function(request, response) {
+app.put("/put", function(request, response) {
     addWord(request.body.word, request.body.definition)
         .then(function(resp) {
             response.send(resp);
@@ -160,7 +161,7 @@ app.put("/words", function(request, response) {
 
 // Read from the database when the page is loaded or after a word is successfully added
 // Use the getWords function to get a list of words and definitions from the database
-app.get("/words", function(request, response) {
+app.get("/get", function(request, response) {
     getWords()
         .then(function(words) {
             response.send(words);

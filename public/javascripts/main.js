@@ -3,10 +3,10 @@ $(document).ready(function() {
   function reload() {
     $('.hidden').fadeOut();
     $('displayOutput').empty();
-    $.get( '/words', function(data) {
+    $.get( '/get', function(data) {
       var rendered = "<ul>";
       data.forEach(function(item) {
-        rendered = rendered + "<li title="+item._id+">The word <b>" + item.word + "</b> is defined as <b>" + item.definition + "</b></li>";
+        rendered = rendered + "<li title="+item.CUS_NAME+">The word <b>" + item.CUS_ADDR + "</b></li>";
       });
       rendered = rendered + "</ul>";
 
@@ -19,7 +19,7 @@ $(document).ready(function() {
     e.preventDefault();
 
     $.ajax({
-      url: '/words',
+      url: '/put',
       type: 'PUT',
       data: $(this).serialize(),
       success: function(data) {
