@@ -45,7 +45,7 @@
 6. Clone the app to your local environment from your terminal using the following command:
 
   ```
-  git clone https://github.com/IBM-Cloud/compose-mysql-helloworld-nodejs.git
+  git clone https://github.com/chrisliu01/mysql-nodejs-connectivity.git
   ```
 
 7. `cd` into this newly created directory. The code for connecting to the service, and reading from and updating the database can be found in `server.js`. See [Code Structure](#code-structure) and the code comments for information on the app's functions. There's also a `public` directory, which contains the html, style sheets and javascript for the web app. For now, the only file you need to update is the application manifest.
